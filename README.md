@@ -1,11 +1,10 @@
-# vue-greedy-components-repacker
+# vue-greedy-components-repacker [Archived as a memory😉]
 
- - [About]()
- - [Introduce]()
- - [Commands]()
- - [Sections custom handler]()
+ - [About](#about)
+ - [Introduce](#introduce)
+   - [Arguments](#arguments)
+ - [Sections custom handler](#sections-custom-handler)
 
-***Readme in progress...**
 
 ## About
 The script processes each section of the component, and then packs it back. You can use standard section handlers or write your own
@@ -15,31 +14,29 @@ By default, script processing only **\<script>** section \(via [javascript-obfus
 
 ## Introduce
 
-## Commands
+### Arguments
 
     --source --src
-0
+Input directory
 
     --dist
-0
+Output directory
 
     --create-conf -c
-0
+Copy default section processor to current dir
 
     --alt-handler --alt
-0
-
-    --copy-other --copy
-0
+Path to custom section handler
 
     --rewrite -r
-0
+If passed, then origin file fill be overwritten
 
     --verbose -v
-0
+Pring trace info
 
     --exclude
-0
+Exclude some files from processing
+
 ## Sections custom handler
 At first your handler must have module.exports, like:
 
@@ -57,27 +54,8 @@ At first your handler must have module.exports, like:
       style: function(obj),
       customBlock: function(obj)
     }
-### 
-**`options:`**
 
-> entry: String
+This options may be overwritten with the global options
 
-about 
-> dist: String
 
-about 
-> exclude: Array
-
-about 
-> verbose: Boolean
-
-about 
-> overwrite: Boolean
-
-about 
-> copyOther: Boolean
-
-about 
-
-**`template/style/script/customBlock:`**
-Must return string.
+**`template/style/script/customBlock`** retrieves block object and must return string.
